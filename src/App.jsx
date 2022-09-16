@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css';
 
 const _intitialItem = {
-	title: 'the test',
-	materials: ['aaa', 'bbb', 'ccc', 'ddd', 'eee']
+	title: 'Warehouse 002',
+	materials: ['pipes', 'plastic', 'metal', 'sand']
 };
 
 function App() {
@@ -12,19 +12,19 @@ function App() {
 	const handleMaterialChange = (currentItem, e, i) => {
 		const newValue = e.target.value;
 		const _item = { ...currentItem };
-    _item.materials[i] = newValue;
+		_item.materials[i] = newValue;
 		setItem(_item);
 	};
 
 	return (
 		<div className="App">
-			<h1>Test Array edit</h1>
+			<h1>{item.title}</h1>
 
 			{item.materials.map((material, i) => {
 				return (
 					<div key={i}>
 						<input
-							value={item.materials[i]}
+							value={material}
 							onChange={(e) => handleMaterialChange(item, e, i)}
 						/>
 					</div>
@@ -33,7 +33,11 @@ function App() {
 
 			<hr />
 			{item.materials.map((material, i) => {
-				return <div key={i}>{material}</div>;
+				return (
+					<p className="material" key={i}>
+						{material}
+					</p>
+				);
 			})}
 		</div>
 	);
