@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './App.scss';
 
 const _intitialItem = {
 	title: 'Warehouse 002',
@@ -31,14 +31,7 @@ function App() {
 				);
 			})}
 
-			<hr />
-			{item.materials.map((material, i) => {
-				return (
-					<p className="material" key={i}>
-						{material}
-					</p>
-				);
-			})}
+			<pre className="showObject">{JSON.stringify(item, null, 2)}</pre>
 		</div>
 	);
 }
